@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px; /* Reduce the width of the scrollbar */
+}
+
+/* Scrollbar track (the background area) */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Light transparent track */
+  border-radius: 10px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(72, 61, 139, 0.7); /* Purple scrollbar thumb */
+  border-radius: 10px; /* Round the edges */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Add some spacing around thumb */
+}
+
+/* Hover effect for the scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(72, 61, 139, 0.9); /* Darker thumb on hover */
+}
+

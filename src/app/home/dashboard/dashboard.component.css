@@ -1,0 +1,185 @@
+/* Container for the fingerprint scanner component */
+.a-container {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+select{
+  width: 300px;
+}
+
+input{
+  width: 300px;
+}
+
+.filter{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 22px;
+}
+
+.row{
+  display: flex;
+}
+/* Main scanner container */
+.scanner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* Light transparent white background */
+  backdrop-filter: blur(10px); /* Glass effect */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  border: 0.3px solid green;
+}
+
+/* Header of the scanner component */
+.scanner-header {
+  background: rgba(138, 43, 226, 0.5); /* Semi-transparent purple */
+  backdrop-filter: blur(10px); /* Glass effect */
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Content section of the scanner component */
+.scanner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+.scanner-image {
+  margin: 0 auto;
+}
+
+
+
+
+
+/* Placeholder image for fingerprint scanner */
+.scanner-image img {
+  width: 8em;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Status text */
+.scanner-status {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Scan button */
+.btn-scan {
+  background-color: #8a2be2; /* Purple background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-scan:hover {
+  background-color: #7a1dd9; /* Darker purple on hover */
+}
+
+/* Student data section */
+.student-data {
+  background: rgba(255, 255, 255, 0.2); /* Light transparent white background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  color: black;
+  text-align: center;
+  width: 100%;
+  max-width: 450px; /* Fixed width for student data */
+  margin-top: 20px; /* Margin to ensure space from scanner container */
+}
+
+.student-data > img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.student-data h3 {
+  margin-bottom: 10px;
+}
+
+.student-data p {
+  margin: 5px 0;
+}
+
+
+.buttons > div{
+  color: black;
+}
+
+
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+  .scanner-container {
+    max-width: 100%; /* Full width on small screens */
+  }
+
+  .student-data {
+    width: 100%; /* Full width on small screens */
+    margin-top: 20px;
+  }
+  
+  .scanner-image img {
+    width: 6em; /* Adjust size of the fingerprint scanner image */
+  }
+
+  .scanner-header {
+    font-size: 18px; /* Adjust font size for mobile */
+  }
+
+  .btn-scan {
+    font-size: 14px; /* Adjust button font size */
+    padding: 8px 16px;
+  }
+}
+
+/* Responsive design for tablets and small laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .scanner-container {
+    max-width: 80%; /* Adjust width for tablets and small laptops */
+  }
+
+  .student-data {
+    width: 100%; /* Full width on tablets and small laptops */
+  }
+  
+  .scanner-image img {
+    width: 7em; /* Adjust size of the fingerprint scanner image */
+  }
+
+  .scanner-header {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .btn-scan {
+    font-size: 16px; /* Adjust button font size */
+    padding: 10px 20px;
+  }
+}

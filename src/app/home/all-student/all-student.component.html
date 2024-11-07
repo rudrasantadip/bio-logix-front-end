@@ -1,0 +1,42 @@
+<div class="table-container">
+    <h2>Student Data</h2>
+  
+    <!-- Search Filters -->
+    <div class="filter-container">
+      <input type="text" [(ngModel)]="searchDepartment" (input)="filterStudents()" placeholder="Search by Department" />
+      <input type="text" [(ngModel)]="searchEnrollmentNumber" (input)="filterStudents()" placeholder="Search by Enrollment Number" />
+    </div>
+  
+    <!-- Student Table -->
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Enrollment Number</th>
+          <th>Stream</th>
+          <th>Department</th>
+          <th>Year</th>
+          <th>Section</th>
+          <th>Roll No</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of filteredStudents">
+          <td>{{ student.name }}</td>
+          <td>{{ student.enrollmentNumber }}</td>
+          <td>{{ student.stream }}</td>
+          <td>{{ student.department }}</td>
+          <td>{{ student.year }}</td>
+          <td>{{ student.section }}</td>
+          <td>{{ student.rollNo }}</td>
+          <td><a [routerLink]="['/attendance', student.id]" class="attendance-link">Attendance</a></td>
+        </tr>
+        <!-- If no student matches the search criteria -->
+        <tr *ngIf="filteredStudents.length === 0">
+          <td colspan="8" class="no-results">No students found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

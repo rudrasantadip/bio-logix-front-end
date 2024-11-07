@@ -1,0 +1,110 @@
+/* Table container */
+.table-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Filter container */
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  /* Search input fields */
+  .filter-container input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: calc(50% - 10px);
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Table styling */
+  .student-table th, .student-table td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    text-align: center;
+  }
+  
+  .student-table th {
+    background-color: #8a2be2;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .student-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* No results found row */
+  .no-results {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Attendance link styling */
+  .attendance-link {
+    color: #8a2be2;
+    text-decoration: none;
+  }
+  
+  .attendance-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Media Queries */
+  @media (max-width: 768px) {
+    /* Stack search fields vertically on small screens */
+    .filter-container input {
+      width: 100%;
+    }
+  
+    /* Make table scrollable horizontally */
+    .student-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    /* Adjust table cell padding and font size for smaller screens */
+    .student-table th, .student-table td {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Smaller padding and font size for very small screens */
+    .table-container {
+      padding: 15px;
+    }
+  
+    .filter-container input {
+      font-size: 12px;
+    }
+  
+    .student-table th, .student-table td {
+      padding: 6px;
+      font-size: 10px;
+    }
+  
+    .attendance-link {
+      font-size: 12px;
+    }
+  }
+  

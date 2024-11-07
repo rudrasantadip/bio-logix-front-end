@@ -1,0 +1,97 @@
+<div class="a-container">
+  <div class="scanner-container">
+    <div class="scanner-header">
+      <h2>Fingerprint Scanner</h2>
+    </div>
+    <div class="box">
+      <div class="scanner-content">
+        <div class="scanner-image">
+          <!-- Placeholder for fingerprint scanner -->
+          <img src="assets/finger.png" alt="Fingerprint Scanner" />
+        </div>
+
+        <div class="buttons">
+          <div class="form-check form-switch">
+            <input (click)="activate(0)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[0]">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Lock Device</label>
+          </div>
+
+          <div class="form-check form-switch">
+            <input (click)="activate(1)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[1]">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Enroll New Student</label>
+          </div>
+
+          <div class="form-check form-switch">
+            <input (click)="activate(2)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[2]">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Take Attendance</label>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div> 
+
+  <div class="filter">
+
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="12/09/24">
+          <label for="floatingInputGrid">Current Date</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid">
+            <option selected>Subject</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <label for="floatingSelectGrid">Subject</label>
+        </div>
+      </div>
+
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelectGrid">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <label for="floatingSelectGrid">Stream</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelectGrid">
+              <option selected>Section</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <label for="floatingSelectGrid">Section</label>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+
+    </div>
+  </div>
+</div>
+
+<div class="student-data" >
+  <h3>Student Data</h3>
+  <img src="/assets/profile.png" alt="">
+  <p><strong>Name:</strong> {{ student?.name }}</p>
+  <p><strong>ID:</strong> {{ student?.id }}</p>
+  <p><strong>Department:</strong> {{ student?.department }}</p>
+  <!-- Add more fields as needed -->
+</div>
+
