@@ -1,0 +1,36 @@
+<div *ngIf="isVisible" class="overlay" (click)="closePopup()">
+    <div class="popup-box" (click)="$event.stopPropagation()" id="printSection">
+      <button class="close-btn" (click)="closePopup()">×</button>
+      <h3>{{student.studentName}}</h3>
+      <span>Enrollment No: {{student.enrollmentNo}}</span>
+      <br>
+      <span>Registration No: {{student.registrationNo}}</span>
+      <br>
+      <span>Total Days Present: {{[(totalDaysPresent(student.attendanceRecords))]}}</span>
+      <br>
+      <span>Total Days Absent: {{[(totalDaysAbsent(student.attendanceRecords))]}}</span>
+      <br>
+      <span>Percentage Attendance: {{[(percentageAttendance(student.attendanceRecords))]}}</span>
+
+      
+      <table *ngIf="student.attendanceRecords.length > 0; else noRecord">
+        <tr>
+          <th>Present</th>
+          <th>Date</th>
+        </tr>
+        <tr *ngFor="let record of student.attendanceRecords">
+          <td>{{ record.present }}</td>
+          <td>{{ record.date }}</td>
+        </tr>
+      </table>
+      
+      <ng-template #noRecord>
+          <p>No attendance records available.</p>
+        </ng-template>
+
+        <button (click)="printDiv()" class="neo-modern-button">Print</button>
+        <button (click)="downloadCSV(student.attendanceRecords)" class="neo-modern-button">Export CSV</button>
+    </div>
+
+  </div>
+  

@@ -14,7 +14,6 @@
           <th>Name</th>
           <th>Enrollment Number</th>
           <th>Stream</th>
-          <th>Department</th>
           <th>Year</th>
           <th>Section</th>
           <th>Roll No</th>
@@ -23,14 +22,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let student of filteredStudents">
-          <td>{{ student.name }}</td>
-          <td>{{ student.enrollmentNumber }}</td>
+          <td>{{ student.studentName }}</td>
+          <td>{{ student.enrollmentNo }}</td>
           <td>{{ student.stream }}</td>
-          <td>{{ student.department }}</td>
           <td>{{ student.year }}</td>
           <td>{{ student.section }}</td>
           <td>{{ student.rollNo }}</td>
-          <td><a [routerLink]="['/attendance', student.id]" class="attendance-link">Attendance</a></td>
+          <td><a (click)="popup.openPopup(student)">Attendance</a></td>
         </tr>
         <!-- If no student matches the search criteria -->
         <tr *ngIf="filteredStudents.length === 0">
@@ -38,5 +36,6 @@
         </tr>
       </tbody>
     </table>
+    <app-popup [attendanceRecord]="attendance" #popup></app-popup>
   </div>
   

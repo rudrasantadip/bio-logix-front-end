@@ -3,56 +3,68 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: linear-gradient(135deg, #ffffff, #8a2be2); /* White to purple gradient background */
+  background: linear-gradient(135deg, #f7f9fc, #ffffff); /* Light gradient */
+  color: #333333; /* Dark gray for text */
 }
 
+/* Logo styles */
 .logo > h1 > a {
-  color: white;
+  color: #0078d7; /* Soft blue */
   text-decoration: none;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 120, 215, 0.3); /* Subtle glow */
 }
 
 /* Header styles */
 .header {
-  position: static;
   width: 100%;
-  background: rgba(138, 43, 226, 0.5); /* Semi-transparent purple */
-  backdrop-filter: blur(10px); /* Glass effect */
-  color: white;
+  background: rgba(255, 255, 255, 0.8); /* Light glass effect */
+  backdrop-filter: blur(8px); /* Subtle blur */
+  color: #0078d7; /* Soft blue text */
   padding: 15px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-family: 'Roboto', sans-serif; /* Clean, modern font */
 }
 
 /* Footer styles */
 .footer {
-  position: static;
   width: 100%;
-  background: rgba(138, 43, 226, 0.5); /* Semi-transparent purple */
-  backdrop-filter: blur(10px); /* Glass effect */
-  color: white;
+  background: rgba(255, 255, 255, 0.9); /* Light glass effect */
+  backdrop-filter: blur(8px); /* Subtle blur */
+  color: #555555; /* Medium gray */
   padding: 15px;
   text-align: center;
   margin-top: auto;
   font-size: 14px;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Shadow to lift the footer */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Main content styles */
 .main-content {
   flex-grow: 1;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.2); /* Light transparent white background */
-  backdrop-filter: blur(10px); /* Glass effect */
+  background: rgba(240, 240, 240, 0.7); /* Light transparent gray */
+  backdrop-filter: blur(8px); /* Glass effect */
   padding: 20px;
-  color: #333; /* Dark text for readability */
+  border-radius: 12px; /* Soft rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #333333; /* Dark gray text */
 }
 
 /* Scrollable content */
 .scrollable-content {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.3); /* Light transparent white background */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  background: rgba(0, 120, 215, 0.1); /* Faint pastel blue */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 120, 215, 0.2); /* Soft glowing shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.scrollable-content:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 120, 215, 0.3); /* Brighter glow */
 }
 
 /* Navigation links */
@@ -60,67 +72,70 @@
   list-style: none;
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: white;
+  color: #0078d7; /* Soft blue */
   font-size: 18px;
-  padding: 5px 10px;
-  transition: background-color 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links li a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Light glass effect on hover */
-  border-radius: 5px;
+  background-color: rgba(0, 120, 215, 0.1); /* Faint pastel background */
+  transform: scale(1.05); /* Slight scale-up */
+  box-shadow: 0 2px 8px rgba(0, 120, 215, 0.2); /* Soft glow */
 }
 
 /* Responsive design for mobile devices (up to 600px) */
 @media (max-width: 600px) {
   .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav-links {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .scrollable-content {
-      padding: 10px;
-      font-size: 14px;
+    padding: 10px;
+    font-size: 14px;
   }
 
   .footer {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 
 /* Responsive design for tablets (601px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .scrollable-content {
-      padding: 15px;
-      font-size: 16px;
+    padding: 15px;
+    font-size: 16px;
   }
 
   .scrollable-content h2 {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
 
 /* Responsive design for larger screens (1025px and above) */
 @media (min-width: 1025px) {
   .scrollable-content {
-      padding: 30px;
-      font-size: 18px;
+    padding: 30px;
+    font-size: 18px;
   }
 
   .scrollable-content h2 {
-      font-size: 24px;
+    font-size: 24px;
   }
 
   .footer {
-      font-size: 14px;
+    font-size: 14px;
   }
 }

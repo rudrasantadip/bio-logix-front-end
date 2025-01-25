@@ -8,7 +8,8 @@ import { ApiResponse, User } from '../auth/login/login.component';
 })
 export class AuthService {
 
-  apiUrl:string='http://192.168.178.102:8080/auth';
+  apiUrl:string='http://localhost:8080/auth';
+
   constructor(private http:HttpClient) 
   {
   }

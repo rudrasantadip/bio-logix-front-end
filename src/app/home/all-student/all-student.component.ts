@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Student } from '../../dtos';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-all-student',
@@ -7,47 +9,59 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-student.component.css']
 })
 export class AllStudentComponent {
+
   
-  students: any[] = [
+  students: Student[] = [
     {
       id: 1,
-      name: 'John Doe',
-      enrollmentNumber: 'ENR123456',
-      stream: 'Science',
-      department: 'Computer Science',
-      year: '2nd',
+      studentName: 'Soumik Das',
+      enrollmentNo: '12022002023127',
+      stream: 'CSIT',
+      registrationNo: '',
       section: 'A',
-      rollNo: '101'
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      enrollmentNumber: 'ENR789012',
-      stream: 'Commerce',
-      department: 'Business Administration',
-      year: '3rd',
-      section: 'B',
-      rollNo: '202'
+      rollNo: '51',
+      attendanceRecords:[]
     },
     // Add more students here
   ];
 
-  filteredStudents: any[] = [];
+  filteredStudents: Student[] = [];
   searchDepartment: string = '';
   searchEnrollmentNumber: string = '';
 
-  constructor() {}
+  constructor(private studentService:StudentService) 
+  {
+
+  }
+
+  attendance = [
+    { date: '2024-10-01', status: 'Present' },
+    { date: '2024-10-02', status: 'Absent' },
+    { date: '2024-10-03', status: 'Present' },
+    // Add more records as needed
+  ];
 
   ngOnInit(): void {
-    this.filteredStudents = [...this.students]; // Initially, display all students
+
+    this.studentService.allStudents()
+    .subscribe(
+      (response)=>{
+        this.students=response;
+        this.filteredStudents = [...this.students]; // Initially, display all students
+      }
+    )
+
   }
 
   // Function to filter students based on the search criteria
   filterStudents() {
     this.filteredStudents = this.students.filter(student => {
-      const departmentMatch = this.searchDepartment ? student.department.toLowerCase().includes(this.searchDepartment.toLowerCase()) : true;
-      const enrollmentNumberMatch = this.searchEnrollmentNumber ? student.enrollmentNumber.toLowerCase().includes(this.searchEnrollmentNumber.toLowerCase()) : true;
+      const departmentMatch = this.searchDepartment ? student.stream?.toLowerCase().includes(this.searchDepartment.toLowerCase()) : true;
+      const enrollmentNumberMatch = this.searchEnrollmentNumber ? student.enrollmentNo.toLowerCase().includes(this.searchEnrollmentNumber.toLowerCase()) : true;
       return departmentMatch && enrollmentNumberMatch;
     });
   }
+
+
+  
 }

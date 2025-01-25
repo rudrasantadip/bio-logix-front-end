@@ -1,97 +1,161 @@
-<div class="a-container">
-  <div class="scanner-container">
-    <div class="scanner-header">
-      <h2>Fingerprint Scanner</h2>
+<div class="container">
+  <div class="scanner">
+    <div class="header">
+      <h2>Scanner</h2>
     </div>
-    <div class="box">
-      <div class="scanner-content">
-        <div class="scanner-image">
-          <!-- Placeholder for fingerprint scanner -->
-          <img src="assets/finger.png" alt="Fingerprint Scanner" />
-        </div>
-
-        <div class="buttons">
-          <div class="form-check form-switch">
-            <input (click)="activate(0)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[0]">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Lock Device</label>
-          </div>
-
-          <div class="form-check form-switch">
-            <input (click)="activate(1)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[1]">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Enroll New Student</label>
-          </div>
-
-          <div class="form-check form-switch">
-            <input (click)="activate(2)" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="checkBoxes[2]">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Take Attendance</label>
-          </div>
-        </div>
-      </div>
-    </div>    
-  </div> 
-
-  <div class="filter">
-
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="12/09/24">
-          <label for="floatingInputGrid">Current Date</label>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <select class="form-select" id="floatingSelectGrid">
-            <option selected>Subject</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <label for="floatingSelectGrid">Subject</label>
-        </div>
+    <div class="scanner-body">
+      <div class="scanner-image">
+        <img src="assets/finger.png" alt="Fingerprint Scanner" />
       </div>
 
-      <div class="row g-2">
-        <div class="col-md">
-          <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <label for="floatingSelectGrid">Stream</label>
-          </div>
+      <div class="toggle-buttons">
+        <div class="form-check form-switch">
+          <input
+            (click)="activate(0, 'locked')"
+            type="checkbox"
+            [checked]="checkBoxes[0]"
+            class="form-check-input"
+            id="lockDeviceToggle"
+          />
+          <label for="lockDeviceToggle">Lock Device</label>
         </div>
-        <div class="col-md">
-          <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option selected>Section</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <label for="floatingSelectGrid">Section</label>
-          </div>
+        <div class="form-check form-switch">
+          <input
+            (click)="activate(1, 'add_finger')"
+            type="checkbox"
+            [checked]="checkBoxes[1]"
+            class="form-check-input"
+            id="enrollStudentToggle"
+          />
+          <label for="enrollStudentToggle">Enroll New Student</label>
+        </div>
+        <div class="form-check form-switch">
+          <input
+            (click)="activate(2, 'verify_finger')"
+            type="checkbox"
+            [checked]="checkBoxes[2]"
+            class="form-check-input"
+            id="takeAttendanceToggle"
+          />
+          <label for="takeAttendanceToggle">Take Attendance</label>
         </div>
 
-    </div>
-
-    <div class="row">
-
-    </div>
-
-    <div class="row">
-
+        <div class="form-check form-switch">
+          <input
+            (click)="activate(3, 'update_finger')"
+            type="checkbox"
+            [checked]="checkBoxes[3]"
+            class="form-check-input"
+            id="takeAttendanceToggle"
+          />
+          <label for="takeAttendanceToggle">Update Biometric</label>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="student-data" >
-  <h3>Student Data</h3>
-  <img src="/assets/profile.png" alt="">
-  <p><strong>Name:</strong> {{ student?.name }}</p>
-  <p><strong>ID:</strong> {{ student?.id }}</p>
-  <p><strong>Department:</strong> {{ student?.department }}</p>
-  <!-- Add more fields as needed -->
-</div>
+  <form #addStudent="ngForm" (ngSubmit)="onSubmit()" *ngIf="checkBoxes[1]">
+    <div class="filter-section">
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Full name"
+            name="fullname"
+            [(ngModel)]="formData.studentName"
+            aria-label="Full name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enrollment Number"
+            name="enrollmentno"
+            [(ngModel)]="formData.enrollmentNo"
+            aria-label="Enrollment Number"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="registrationNo"
+            [(ngModel)]="formData.registrationNo"
+            placeholder="Registration Number"
+            aria-label="Registration Number"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="stream"
+            [(ngModel)]="formData.stream"
+            placeholder="Stream"
+            aria-label="Stream"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Section"
+            name="section"
+            [(ngModel)]="formData.section"
+            aria-label="Section"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Year"
+            name="year"
+            [(ngModel)]="formData.year"
+            aria-label="Year"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Roll No"
+            name="rollno"
+            [(ngModel)]="formData.rollNo"
+            aria-label="Roll no"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Finger Print"
+            name="fingerprint"
+            [(ngModel)]="formData.fingerPrint"
+            [value]="formData.fingerPrint"
+            aria-label="Finger Print"
+          />
+        </div>
+      </div>
+      <button class="submit-button btn btn-outline-dark" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
 
+  <div class="student-data" *ngIf="checkBoxes[2]">
+    <h3>Student Data</h3>
+    <img src="assets/profile.png" alt="Student Profile Picture" />
+    <p><strong>Name:</strong> {{ student.studentName }}</p>
+    <p><strong>Enrollment No:</strong> {{ student.enrollmentNo }}</p>
+    <p><strong>Registration No:</strong> {{ student.registrationNo }}</p>
+  </div>
+</div>
