@@ -8,7 +8,7 @@ import { Student } from '../dtos';
 })
 export class StudentService {
 
-  apiUrl:string='http://localhost:8080/student';
+  apiUrl:string='http://192.168.136.102:8080/student';
 
   constructor(private http:HttpClient) 
   { }

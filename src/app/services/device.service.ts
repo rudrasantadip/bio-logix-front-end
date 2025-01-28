@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DeviceService {
 
-  apiUrl:string='http://localhost:8080/device';
+  apiUrl:string='http://192.168.136.102:8080/device';
   constructor(private http:HttpClient) 
   {
 

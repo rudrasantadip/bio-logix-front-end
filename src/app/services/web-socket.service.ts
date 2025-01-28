@@ -13,8 +13,8 @@ export interface Message {
 })
 export class WebSocketService 
 {
-  public url:string='http:/localhost:8080/api/fingerprint/sse';
-  public url2:string='http://localhost:8080/api/fingerprint/sse2'
+  public url:string='http:/192.168.136.102:8080/api/fingerprint/sse';
+  public url2:string='http://192.168.136.102:8080/api/fingerprint/sse2'
 
   private eventSource: EventSource | null = null;
 
